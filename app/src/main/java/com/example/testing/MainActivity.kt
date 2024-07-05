@@ -49,130 +49,13 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GeneralPreview()
+                    ColumnTest()
                 }
             }
         }
     }
 }
 
-
-@Preview(showBackground = true)
-@Composable
-fun GeneralPreview() {
-    TestingTheme {
-        Counter()
-    }
-}
-
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-
-@Composable
-fun TextTest() {
-    Text(text = "texto 1")
-    Text(text = "texto 2")
-    Text(text = "texto 3")
-}
-
-
-@Composable
-fun BoxTest(text: String) {
-    Box(
-        modifier = Modifier
-            .width(100.dp)
-            .height(50.dp)
-            .background(Color.Red)
-    ) {
-        Text(text = text)
-    }
-}
-
-
-@Composable
-fun ColumnTest() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.Cyan)
-            .verticalScroll(rememberScrollState())
-    ) {
-
-
-        Row(
-            modifier = Modifier
-                .background(Color.Red)
-                .weight(3f)
-                .fillMaxWidth()
-                .align(Alignment.End)
-        ) {
-            Text(text = "soy el rojo")
-        }
-
-
-        Row(
-            modifier = Modifier
-                .background(Color.Yellow)
-                .weight(2f)
-                .fillMaxWidth()
-        ) {
-            Column(
-                modifier = Modifier
-                    .background(Color.Green)
-                    .weight(3f)
-                    .fillMaxHeight()
-            ) {
-
-
-            }
-            Column(
-                modifier = Modifier
-                    .background(Color.Cyan)
-                    .weight(2f)
-                    .fillMaxHeight()
-            ) {
-
-
-            }
-
-
-        }
-        Row(
-            modifier = Modifier
-                .background(Color.Magenta)
-                .weight(3f)
-                .fillMaxWidth()
-        ) {
-
-
-        }
-    }
-
-
-}
-
-
-@Composable
-fun Counter() {
-    var count by remember {
-        mutableStateOf(0)
-    }
-    Column {
-        Button(onClick = {
-            count++
-        }) {
-            Text(text = "+")
-        }
-        Text(text = count.toString())
-    }
-}
 
 
 
